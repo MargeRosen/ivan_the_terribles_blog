@@ -6,4 +6,21 @@ Read all my amazing posts!!!!! You can load them into the app with: `rake load_b
 
 Since I know you want to read them all, I designed my page to show EVERYTHING on the front page of the site!!!!!
 
-I know it is a little slow (but totes worth it!!!!)... _Do you know how I can make it faster?_
+I know it is a little slow (but its worth it!!!!)... _Do you know how I can make it faster?_
+
+# Performance Improvements
+
+Rendering: posts/index is the biggest bottleneck
+
+The first step was to limit Posts, Comments, and Replys to display the 10 most recent of each, instead of 100 each.  This step improved performance 10-fold.  The load time improved from  51,970.3 ms to 4759.6ms.  This is a great improvement, but it still loads slowly and makes way too many SQL calls (from 10,106 to 1016 sql).
+
+### Next Steps
+
+Investigate page caching and other performance techniques to really speed things up.
+
+### Here are the before and after screenshots:
+
+![Before](/lib/assets/ivanblog_before_mini_profiler.png)
+
+![After](/lib/assets/ivanblog_after_part1.png)
+

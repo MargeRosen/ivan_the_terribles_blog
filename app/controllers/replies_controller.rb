@@ -2,7 +2,8 @@ class RepliesController < ApplicationController
   # GET /replies
   # GET /replies.json
   def index
-    @replies = Reply.all
+    #@replies = Reply.all
+    @replies = Reply.all(:limit => 10, :order => "created_at")
 
     respond_to do |format|
       format.html # index.html.erb

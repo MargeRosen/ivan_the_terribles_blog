@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    #@comments = Comment.all
+    @comments = Comment.all(:limit => 10, :order => "created_at")
 
     respond_to do |format|
       format.html # index.html.erb

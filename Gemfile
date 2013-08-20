@@ -6,7 +6,8 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-#gem 'sqlite3'
+
+gem 'rack-mini-profiler'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,17 +30,23 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-debugger'
   gem 'hirb'
+#  gem 'sqlite3'
 end
 
 group :test do
   gem 'test-unit'
   gem 'ruby-prof'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
+
+# Page caching is an approach to caching where the entire action output is stored
+# as a HTML file that the web server can serve without going through Action Pack.
+#gem 'actionpack-page_caching', '= 3.2.13'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

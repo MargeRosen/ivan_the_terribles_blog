@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    #@posts = Post.all
+    @posts = Post.all(:limit => 10, :order => "created_at")
+
 
     respond_to do |format|
       format.html # index.html.erb
