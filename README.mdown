@@ -12,15 +12,34 @@ I know it is a little slow (but its worth it!!!!)... _Do you know how I can make
 
 Rendering: posts/index is the biggest bottleneck
 
-The first step was to limit Posts, Comments, and Replys to display the 10 most recent of each, instead of 100 each.  This step improved performance 10-fold.  The load time improved from  51,970.3 ms to 4759.6ms.  This is a great improvement, but it still loads slowly and makes way too many SQL calls (from 10,106 to 1016 sql).
+The first step was to limit Posts, Comments, and Replys to display the 10 most recent of each, instead of 100 each.  This step improved performance 10-fold.  The load time improved from  51,970.3 ms to 4759.6 ms.  This is a great improvement, but it still loads slowly and makes way too many SQL calls (from 10,106 to 1016 sql).
+
+The second step was to add an index to the Replies table of the database.  This improved load time from 4659.6 ms to 2071.7 ms, cutting the load time in half!!
 
 ### Next Steps
 
+Reduce to SQL calls to 30.
+
 Investigate page caching and other performance techniques to really speed things up.
+
+Consider adding an index to the Comments table of the database.
+
+Remove unused helper files.
+
 
 ### Here are the before and after screenshots:
 
 ![Before](/lib/assets/ivanblog_before_mini_profiler.png)
 
+
+Step 1 improvement:
+
+
 ![After](/lib/assets/ivanblog_after_part1.png)
+
+
+Step 2 improvement:
+
+
+![After2](/lib/assets/ivanblog_after_part2.png)
 

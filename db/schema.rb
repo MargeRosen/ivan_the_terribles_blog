@@ -34,4 +34,6 @@ ActiveRecord::Schema.define(:version => 20130615172522) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "replies", ["comment_id"], :name => "index_replies_on_comment_id"
+
 end

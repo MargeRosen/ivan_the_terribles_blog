@@ -6,5 +6,7 @@ class CreateReplies < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index "replies", ["comment_id"], name: "index_replies_on_comment_id"
   end
 end
